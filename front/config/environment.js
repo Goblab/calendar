@@ -64,7 +64,7 @@ module.exports = function(environment) {
     'style-src': "'self' 'unsafe-inline' fonts.googleapis.com maps.gstatic.com"
   };
   ENV['ember-simple-auth'] = {
-    baseURL: 'localhost:4200'
+    baseURL: 'calendar.kush-team.com.ar'
   };
 
   return ENV;
