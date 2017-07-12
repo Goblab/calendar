@@ -1,0 +1,38 @@
+<h2 class="ui header dividing -flex">
+    Eventos
+    <div class="actions">{{link-to "Crear nuevo evento" "events.new" classNames="ui orange button tiny" }}</div>
+</h2>
+
+{{#if model.length}}
+ <div class="section-content ">
+    <table class="ui celled striped table">
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+      <tbody>
+        {{#each model as |event|}}
+        <tr>
+          <td class="collapsing">
+            {{event.title}}
+          </td>
+          <td>
+            {{event.date}}
+          </td>
+          <td class="right aligned collapsing">
+            {{link-to "Editar" "events.edit" event.id class="ui button tiny"}}
+            <a href="#" {{action "remove" event}} class="ui button tiny">Eliminar</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <div class="loading">
+  
+  </div>
+{{/if}}

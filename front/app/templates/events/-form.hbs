@@ -1,0 +1,102 @@
+<div class="section-content home ui segment tall stacked">
+  <form {{action "save" on="submit"}} class="ui form">
+    <div class="field">
+      <label>
+        Titulo
+        {{input type="text" value=model.title}}
+      </label>
+    </div>
+    <div class="field">
+      <label>
+        Descripccion
+        {{froala-editor content=model.description update=(action (mut model.description)) options=(hash heightMin=200)}}
+      </label>
+    </div>
+    <div class="field">
+      <label>
+        Fecha Inicio
+        {{ember-flatpickr
+          allowInput=false
+          altFormat='d-m-Y h:i'
+          altInput=true
+          clickOpens=true
+          dateFormat='M/D/Y'
+          defaultHour=12
+          defaultMinute=0
+          disableMobile=false
+          enableSeconds=false
+          enableTime=true
+          hourIncrement=1
+          inline=false
+          maxDate=maxDate
+          minDate=minDate
+          minuteIncrement=5
+          mode='single'
+          nextArrow='>'
+          noCalendar=false
+          onChange=(action (mut model.startDate))
+          parseDate=false
+          placeholder='Seleccione Fecha'
+          prevArrow='<'
+          static=false
+          timeFormat='H:i'
+          time_24hr=false
+          utc=false
+          value=(readonly model.startDate)
+          wrap=false}}        
+      </label>
+      <label>
+        Fecha Fin
+        {{ember-flatpickr
+          allowInput=false
+          altFormat='d-m-Y h:i'
+          altInput=true
+          clickOpens=true
+          dateFormat='M/D/Y'
+          defaultHour=12
+          defaultMinute=0
+          disableMobile=false
+          enableSeconds=false
+          enableTime=true
+          hourIncrement=1
+          inline=false
+          maxDate=maxDate
+          minDate=minDate
+          minuteIncrement=5
+          mode='single'
+          nextArrow='>'
+          noCalendar=false
+          onChange=(action (mut model.endDate))
+          parseDate=false
+          placeholder='Seleccione Fecha'
+          prevArrow='<'
+          static=false
+          timeFormat='H:i'
+          time_24hr=false
+          utc=false
+          value=(readonly model.endDate)
+          wrap=false}}        
+      </label>      
+    </div>
+    <div class="field">
+      <label>
+        Direccion / Lugar
+        {{g-autocomplete value=model.address on-select=(action "didUpdatePlace")}}
+      </label>
+    </div>
+
+    {{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
+    {{#if (can "view admin")}}
+      <div class="field">
+        <label>
+          Es Seccional
+          {{input type="checkbox" name="isGlobal" checked=model.goblal}}
+        </label>
+      </div>   
+    {{/if}}
+    <div class="field">
+      <input type="submit" value="Guardar" class="ui button blue">
+    </div>
+  </form>
+
+</div>

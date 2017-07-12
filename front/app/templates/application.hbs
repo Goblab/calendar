@@ -1,0 +1,75 @@
+{{#burger-menu animation="push" itemAnimation="push" position="right" as |burger|}}
+  {{#burger.menu dismissOnItemClick=true itemTagName="li" as |menu|}}
+    <a {{action burger.state.actions.close}} class="off-canvas-close fa fa-close"></a>
+    <h2><img src="/assets/images/logo-decide-2017.png" width="200px" alt=""></h2>
+    <ul class="ui secondary vertical pointing menu">
+      {{#if session.isAuthenticated}}
+        {{#menu.item}}
+          {{#link-to 'index'}}
+            <i class="fa fa-cog"></i>
+            Inicio
+          {{/link-to}}
+        {{/menu.item}}
+      
+        {{#if (can "view admin")}}
+          {{#menu.item}}
+            {{#link-to 'users'}}
+              <i class="fa fa-cog"></i>
+              Usuarios
+            {{/link-to}}
+          {{/menu.item}}
+          {{#menu.item}}
+            {{#link-to 'events'}}
+              <i class="fa fa-cog"></i>
+              Eventos
+            {{/link-to}}
+          {{/menu.item}}
+        {{/if}}
+
+
+
+        {{#menu.item}}
+          <a {{action 'invalidateSession'}}>
+          <i class="fa fa-unlock-alt"></i>
+          Logout</a>
+        {{/menu.item}}
+      {{else}}
+        {{#menu.item}}
+          {{#link-to 'login'}}
+          <i class="fa fa-lock"></i>
+          Login{{/link-to}}
+        {{/menu.item}}
+      {{/if}}
+    </ul>
+  {{/burger.menu}}
+ 
+  {{#burger.outlet}}
+    <nav class="main-nav">
+      {{#link-to 'index' class="logo"}}
+        <img src="/assets/images/logo-decide-2017.png" width="200px" alt="Calendar">
+      {{/link-to}}
+      <div class="nav-menu">
+        {{#link-to 'index'}}
+          Inicio
+        {{/link-to}}
+        {{#if (can "view admin")}}
+          {{#link-to 'users'}}
+            Usuarios
+          {{/link-to}}        
+          {{#link-to 'events'}}
+            Eventos
+          {{/link-to}}        
+
+        {{/if}}
+
+      </div>
+      <a class="off-canvas fa fa-bars" {{action burger.state.actions.toggle}}></a>
+    </nav>
+  
+    <div class="ui main-container container">
+      <div class="segment">
+      {{outlet}}
+      </div>
+    </div>
+  {{/burger.outlet}}
+{{/burger-menu}}

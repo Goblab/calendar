@@ -1,0 +1,36 @@
+<div class="section-content home ui segment tall stacked">
+    <div class="field">
+      <label>
+		{{model.title}}		        
+      </label>
+    </div>
+    <div class="field">
+      <label>
+        {{{description}}}
+      </label>
+    </div>
+    <div class="field">
+      <label>
+        Fecha Inicio  {{model.startDate}}    
+      </label>
+      <label>
+        Fecha Fin {{model.endDate}}
+      </label>      
+    </div>
+    <div class="field">
+      <label>
+        Direccion / Lugar
+        {{model.address}}
+      </label>
+    </div>
+
+    {{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
+    {{#if (can "view admin")}}
+      <div class="field">
+        <label>
+          Es Seccional {{model.goblal}}
+        </label>
+      </div>   
+    {{/if}}
+
+</div>

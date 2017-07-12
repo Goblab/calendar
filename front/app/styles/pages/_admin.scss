@@ -1,0 +1,38 @@
+.admin {
+	padding: 15px;
+	border-radius: 6px;
+	font-family: $font-sans;
+
+
+
+	ul, table {
+		font-weight: 600;
+		font-size: 18px;
+	}
+
+	li {
+		margin: 5px 0;
+		border-bottom: 1px solid #ddd;
+		padding: 5px 0;
+
+		a {
+			//text-transform: uppercase;
+		}
+	}
+
+	form {
+		button {
+			.fa {
+				padding-right: 15px;
+			}
+		}
+	}
+}
+
+.candidate-edit {
+	.selectize-input {
+		background: none !important;
+		border: 1px solid rgba(34, 36, 38, 0.15) !important;
+	}
+}
+

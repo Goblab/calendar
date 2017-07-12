@@ -1,0 +1,24 @@
+<div class="actions">
+	{{link-to "Crear nuevo evento" "events.new" classNames="ui orange button tiny" }}
+</div>
+{{as-calendar
+  title="Eventos"
+  occurrences=occurrences
+  defaultTimeZoneQuery="Buenos Aires"
+  dayStartingTime="7:00"
+  dayEndingTime="18:00"
+  timeSlotDuration="00:30"
+  editable=false
+  onAddOccurrence=(action "calendarAddOccurrence")
+  onUpdateOccurrence=(action "calendarUpdateOccurrence")
+  onRemoveOccurrence=(action "calendarRemoveOccurrence")}}
+
+<div>
+	{{x-toggle
+	  	value=seccionals
+	  	showLabels=true
+	  	onLabel='Seccionales::true'
+	  	offLabel='Todas::false'
+	  	onToggle=(mut seccionals)
+	}}
+</div>

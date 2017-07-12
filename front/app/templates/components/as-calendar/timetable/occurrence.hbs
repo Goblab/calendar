@@ -1,0 +1,12 @@
+<div class="as-calendar-occurrence__container">
+  {{#if hasBlock}}
+    {{yield}}
+  {{else}}
+    <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>{{title}}</h1>
+    <small>
+      {{#link-to 'events.show' content.id}}
+        {{{content.description}}}
+      {{/link-to}}
+    </small>
+  {{/if}}
+</div>
