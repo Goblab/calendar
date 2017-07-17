@@ -1,7 +1,13 @@
 <div class="section-content home ui segment tall stacked">
     <div class="field">
       <label>
-		{{model.title}}		        
+        {{model.owner.lastName}}           
+      </label>
+    </div>
+
+    <div class="field">
+      <label>
+		    {{model.title}}		        
       </label>
     </div>
     <div class="field">
@@ -26,11 +32,11 @@
 
     {{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
     {{#if (can "view admin")}}
-      <div class="field">
-        <label>
-          Es Seccional {{model.goblal}}
-        </label>
-      </div>   
+      {{#if model.goblal}}
+        Seccional
+      {{else}}
+        Hacer seccional
+      {{/if}}
     {{/if}}
 
 </div>

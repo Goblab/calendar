@@ -8,5 +8,6 @@ export default DS.Model.extend({
 	picture: DS.belongsTo('asset'),
 	address: DS.attr('string'),
 	place: DS.attr(''),
-	goblal: DS.attr('boolean')
+	goblal: DS.attr('boolean'),
+	owner: DS.belongsTo('user')
 });

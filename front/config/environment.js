@@ -39,6 +39,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-simple-auth'] = {
+      baseURL: 'http://localhost:4200/'
+    };
+
   }
 
   if (environment === 'test') {
@@ -53,8 +57,15 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['ember-simple-auth'] = {
+      baseURL: 'http://localhost:4200/'
+    };
   }
+
+  ENV['ember-simple-auth'] = {
+    baseURL: 'http://localhost:4200/'
+  };
+
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
     'script-src': "'self' 'unsafe-eval' *.googleapis.com maps.gstatic.com",
@@ -62,9 +73,6 @@ module.exports = function(environment) {
     'connect-src': "'self' maps.gstatic.com",
     'img-src': "'self' *.googleapis.com maps.gstatic.com csi.gstatic.com",
     'style-src': "'self' 'unsafe-inline' fonts.googleapis.com maps.gstatic.com"
-  };
-  ENV['ember-simple-auth'] = {
-    baseURL: 'calendar.kush-team.com.ar'
   };
 
   return ENV;

@@ -1,20 +1,14 @@
 import Ember from 'ember';
  
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
+
   seccionals: true,
 
-  occurrences: Ember.computed('model.@each', 'seccionals', function () {
+  occurrences: Ember.computed('model.@each', function () {
     var events = Ember.A();
     if (this.get('model')) {
       this.get('model').forEach(function (event) {
-        var canAdd = true;
-
-        if (this.get('seccionals')) {
-          if (!event.get('goblal')) {
-            canAdd = false;
-          }
-        }
-
         var ev = Ember.Object.create({
           title: event.get('title'),
           startsAt: moment(event.get('startDate')),
@@ -24,35 +18,34 @@ export default Ember.Controller.extend({
           address: event.get('address'),
           isDraggable: false
         });
-
-        if (canAdd) {
-          events.push(ev);
-        }
+        events.push(ev);
       }, this);
     } 
     return events;
   }),
  
 
+  userList: Ember.computed('users.@each', function () {
+    var ar = [];
+    var _this = this;
+    this.get('users').forEach(function (user) {
+      if (user.get('id') != _this.get('session').get('account').get('id')) {
+        ar.push(user);
+      }
+    });
+    return ar;
+  }),
+
 
 
   actions: {
     calendarAddOccurrence: function(occurrence) {
-      /*
-      this.get('occurrences').pushObject(Ember.Object.create({
-        title: occurrence.get('title'),
-        startsAt: occurrence.get('startsAt'),
-        endsAt: occurrence.get('endsAt')
-      }));
-      */
     },
  
     calendarUpdateOccurrence: function(occurrence, properties) {
-      //occurrence.setProperties(properties);
     },
  
     calendarRemoveOccurrence: function(occurrence) {
-      //this.get('occurrences').removeObject(occurrence);
     }
   }
 });

@@ -9,7 +9,7 @@
     <div class="field">
       <label>
         Descripccion
-        {{froala-editor content=model.description update=(action (mut model.description)) options=(hash heightMin=200)}}
+        {{textarea value=model.description}}
       </label>
     </div>
     <div class="field">

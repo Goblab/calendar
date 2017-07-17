@@ -14,6 +14,10 @@ export default Ember.Route.extend(CanMixin, AuthenticatedRouteMixin, {
   },
 
   model: function() {
-    return this.store.findAll("event");
+    if (this.can('view admin')) {
+      return this.store.findAll('event');
+    } else {
+       return this.store.query('event', {owner: this.get('session').get('account').get('id')});
+    }
   },
 });
