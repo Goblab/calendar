@@ -1,29 +1,75 @@
 <div class="ui container segment">
   <div class="actions">
-    {{link-to "Crear nuevo evento" "events.new" classNames="ui orange button tiny" }}
+    {{link-to "Crear nuevo evento" "events.new" classNames="ui blue button tiny" }}
   </div>
 
-
+{{#unless media.isMobile}}
   {{as-calendar
     title="Eventos"
     occurrences=occurrences
     defaultTimeZoneQuery="Buenos Aires"
     dayStartingTime="7:00"
-    dayEndingTime="18:00"
+    dayEndingTime="23:00"
     timeSlotDuration="00:30"
     editable=false
     onAddOccurrence=(action "calendarAddOccurrence")
     onUpdateOccurrence=(action "calendarUpdateOccurrence")
     onRemoveOccurrence=(action "calendarRemoveOccurrence")}}
+{{else}}
+
+  <div class="ui feed">
+    {{#each occurrences as |ocurrence|}}
+        <div class="event">
+            <div class="content">
+              <div class="summary">
+                {{#link-to 'events.show' ocurrence.id}}{{ocurrence.title}}{{/link-to}} {{ocurrence.owner.lastName}}
+                <div class="date">
+                  {{moment-from-now ocurrence.startsAt}}
+                </div>
+              </div>
+              <div class="extra text">
+                {{{ocurrence.description}}}
+              </div>
+              <div class="meta">
+                <a class="like">
+                  <i class="calendar icon"></i> {{moment-format ocurrence.startsAt  'MMMM Do YYYY, h:mm a' }} / {{moment-format ocurrence.endsAt  'h:mm a' }}
+                </a>
+              </div>
+            </div>
+          </div>          
+    {{/each}}
+  </div>
+{{/unless}}
 </div>
 
 {{#if (can "view admin")}}
-  <div class="ui container segment">
-    <div class="ui buttons">
-      <a {{action "loadSeccionals"}} class="ui button">Seccionales</a>
-      {{#each userList as |user|}}
-        <a {{action "loadData" user.id}} class="ui button">{{user.lastName}}</a> 
-      {{/each}}
+  {{#unless media.isMobile}}
+    <div class="ui container segment">
+      <div class="ui buttons">
+        <a {{action "loadSeccionals"}} class="ui button">Seccionales</a>
+        {{#each userList as |user|}}
+          <a {{action "loadData" user.id}} class="ui button">{{user.lastName}}</a> 
+        {{/each}}
+      </div>
     </div>
-  </div>
+  {{else}}
+    <div class="ui container segment">
+      <div class="ui relaxed divided list">
+        <div class="item">
+          <i class="large building outline middle aligned icon"></i>
+          <div class="content">
+            <a {{action "loadSeccionals"}} class="header">Seccionales</a>
+          </div>
+        </div>
+        {{#each userList as |user|}}
+          <div class="item">
+            <i class="large building outline middle aligned icon"></i>
+            <div class="content">
+              <a {{action "loadData" user.id}} class="header">{{user.lastName}}</a>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  {{/unless}}
 {{/if}}

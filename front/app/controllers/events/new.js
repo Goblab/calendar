@@ -29,5 +29,10 @@ export default Ember.Controller.extend({
 		didUpdatePlace: function (argument) {
 			this.get('model').set('place', argument);
 		},
+
+		makeSeccional: function () {
+			this.get('model').set('goblal', true);
+			this.get('model').save();
+		}
 	}
 });

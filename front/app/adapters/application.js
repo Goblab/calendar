@@ -6,7 +6,7 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
   authorizer: 'authorizer:oauth2',	
   namespace: 'api',
   coalesceFindRequests: true,
-  host: 'http://apilegis.kush-team.com.ar',
+  host: 'http://104.236.221.70:1337',
 
   pathForType: function(type) {
     return Ember.String.dasherize(this._super(type));

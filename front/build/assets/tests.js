@@ -114,7 +114,7 @@ define('front/tests/controllers/index.jshint.lint-test', ['exports'], function (
   QUnit.module('JSHint | controllers/index.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 40, col 37, \'occurrence\' is defined but never used.\ncontrollers/index.js: line 50, col 52, \'properties\' is defined but never used.\ncontrollers/index.js: line 50, col 40, \'occurrence\' is defined but never used.\ncontrollers/index.js: line 54, col 40, \'occurrence\' is defined but never used.\ncontrollers/index.js: line 20, col 21, \'moment\' is not defined.\ncontrollers/index.js: line 21, col 19, \'moment\' is not defined.\n\n6 errors');
+    assert.ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 32, col 28, Expected \'!==\' and instead saw \'!=\'.\ncontrollers/index.js: line 42, col 37, \'occurrence\' is defined but never used.\ncontrollers/index.js: line 45, col 52, \'properties\' is defined but never used.\ncontrollers/index.js: line 45, col 40, \'occurrence\' is defined but never used.\ncontrollers/index.js: line 48, col 40, \'occurrence\' is defined but never used.\ncontrollers/index.js: line 14, col 21, \'moment\' is not defined.\ncontrollers/index.js: line 15, col 19, \'moment\' is not defined.\n\n7 errors');
   });
 });
 define('front/tests/controllers/login.jshint.lint-test', ['exports'], function (exports) {
@@ -913,7 +913,7 @@ define('front/tests/routes/index.jshint.lint-test', ['exports'], function (expor
   QUnit.module('JSHint | routes/index.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/index.js should pass jshint.\nroutes/index.js: line 4, col 22, \'argument\' is defined but never used.\n\n1 error');
+    assert.ok(false, 'routes/index.js should pass jshint.\nroutes/index.js: line 6, col 22, \'argument\' is defined but never used.\nroutes/index.js: line 28, col 33, \'userId\' is defined but never used.\n\n2 errors');
   });
 });
 define('front/tests/routes/login.jshint.lint-test', ['exports'], function (exports) {

@@ -6,6 +6,12 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'hash',
+    moment: {
+      // To cherry-pick specific locale support into your application.
+      // Full list of locales: https://github.com/moment/moment/tree/2.10.3/locale
+      includeLocales: ['es']
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -24,8 +30,8 @@ module.exports = function(environment) {
   };
 
   ENV['adapter'] = {
-      'fileUrl': 'http://apilegis.kush-team.com.ar/',
-      'upload': 'http://apilegis.kush-team.com.ar/upload-file',      
+      'fileUrl': 'http://104.236.221.70:1337/',
+      'upload': 'http://104.236.221.70:1337/upload-file',      
   };
   
   ENV.googleMap = {
@@ -56,7 +62,7 @@ module.exports = function(environment) {
   }
 
   ENV['ember-simple-auth'] = {
-    baseURL: 'http://calendar.kush-team.com.ar'
+    baseURL: 'http://localhost:4200/'
   };
 
   ENV.contentSecurityPolicy = {

@@ -44,10 +44,10 @@ label {
     font-weight: 300
 }
 a {
-    color: #e24b31
+    color: #fec700 !important;
 }
 a:hover {
-    color: #db3a1f
+    color: #fec700 !important;
 }
 .pointer {
     cursor: pointer
@@ -56,11 +56,11 @@ a:hover {
     clear: both
 }
 .ember-burger-menu .bm-outlet>.bm-content {
-    background:rgba(232, 69, 69, 0.80);
+    background: #009ddf;
     padding-bottom: 45px;
 }
 .ember-burger-menu .bm-menu {
-    background: #e24b31;
+    background: #009ddf;
 }
 .ember-burger-menu .bm-menu a.close {
     position: absolute;
@@ -74,7 +74,7 @@ a:hover {
     text-shadow: 0 0 1px rgba(0, 0, 0, .1);
     font-size: 2em;
     text-align: center;
-    background: #f9f9f9;
+    background: #009ddf;
     //text-transform: uppercase;
     font-weight: 700
 }
@@ -107,7 +107,7 @@ a:hover {
     vertical-align: middle
 }
 .ember-burger-menu .bm-menu ul li a:hover {
-    background: #ad4636
+    background: #009ddf
 }
 .ember-burger-menu .bm-menu ul li:first-child a {
     border-top: 1px solid rgba(0, 0, 0, .2)
@@ -129,7 +129,7 @@ a:hover {
     z-index: 0;
     outline: 0;
     box-shadow: none;
-    background: #e24b31;
+    background: #009ddf;
     color: #e2e2e2;
     border-color: #db3a1f
 }

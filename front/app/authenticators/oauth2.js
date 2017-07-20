@@ -12,7 +12,7 @@ const {
 const assign = emberAssign || merge;
 
 export default OAuth2PasswordGrant.extend({
-    serverTokenEndpoint: 'http://apilegis.kush-team.com.ar/auth/login',
+    serverTokenEndpoint: 'http://104.236.221.70:1337/auth/login',
     authorizationPrefix: null,
     tokenPropertyName: 'access_token',
     authorizationHeaderName: 'access_token',

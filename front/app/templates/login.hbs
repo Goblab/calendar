@@ -1,4 +1,11 @@
-<div class="login">
+<div class="ui container center aligned ui segment">
+  <h2 class="aligned center">
+      {{#unless media.isMobile}}
+        <img src="/assets/logouc.png" height ="50%" alt="" class="center aligned">
+      {{else}}
+        <img src="/assets/solcitoamarillo.png" height ="100px" alt="" class="center aligned">
+      {{/unless}}
+  </h2>
   <form {{action 'authenticate' on='submit'}} class="ui form">
     <div class="grouped fields">
       <div class="field">
@@ -7,11 +14,10 @@
       </div>
       <div class="field">
     <label for="password">Contraseña</label>
-       	
        {{input id='password' placeholder='Contraseña' type='password' value=password}}
       </div>
     </div>
-    <button class="fluid ui inverted button" type="submit">Ingresar</button>
+    <button class="fluid ui blue button" type="submit">Ingresar</button>
     {{#if errorMessage}}
       <p class="dashboard">{{errorMessage}}</p>
     {{/if}}

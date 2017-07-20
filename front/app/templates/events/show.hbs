@@ -1,42 +1,22 @@
-<div class="section-content home ui segment tall stacked">
-    <div class="field">
-      <label>
-        {{model.owner.lastName}}           
-      </label>
+<div class="ui segment">
+  <div class="ui items">
+    <div class="item">
+      <div class="content">
+        <div class="header">{{model.owner.lastName}}  {{model.title}}</div>
+        <div class="meta">
+          <span class="price">{{moment-format model.startDate  'MMMM Do YYYY, h:mm a' }}</span>
+          <span class="stay">{{model.address}}</span>
+        </div>
+        <div class="description">
+          <p> {{{model.description}}}</p>
+        </div>
+      </div>
     </div>
+  </div>
+  {{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
 
-    <div class="field">
-      <label>
-		    {{model.title}}		        
-      </label>
-    </div>
-    <div class="field">
-      <label>
-        {{{description}}}
-      </label>
-    </div>
-    <div class="field">
-      <label>
-        Fecha Inicio  {{model.startDate}}    
-      </label>
-      <label>
-        Fecha Fin {{model.endDate}}
-      </label>      
-    </div>
-    <div class="field">
-      <label>
-        Direccion / Lugar
-        {{model.address}}
-      </label>
-    </div>
-
-    {{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
-    {{#if (can "view admin")}}
-      {{#if model.goblal}}
-        Seccional
-      {{else}}
-        Hacer seccional
-      {{/if}}
-    {{/if}}
+  {{#unless model.goblal}}
+    <div class="ui button blue" {{action 'makeSeccional'}}>Hacer seccional</div>
+  {{/unless}}
 
 </div>
