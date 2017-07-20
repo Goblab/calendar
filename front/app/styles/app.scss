@@ -8,30 +8,31 @@
 // @import "utils/functions";
 
 // Base
-@import "base/reset";
+//@import "base/reset";
 @import "base/typography";
+
 @import "base/article";
 
 // Modules
-@import 'modules/relation-percent';
+//@import 'modules/relation-percent';
 @import "modules/main-container";
 @import "modules/main-nav";
-@import "modules/candidates";
-@import "modules/alliances";
+//@import "modules/candidates";
+//@import "modules/alliances";
 
 // Components
-@import "components/yes-no";
+//@import "components/yes-no";
 @import "components/sidebar";
 
 //@import "components/scroll-top";
 
 // Pages
 @import "pages/home";
-@import "pages/login";
-@import "pages/admin";
-@import "pages/about";
-@import "pages/methodology";
-// @import "pages/reports";
+//@import "pages/login";
+//@import "pages/admin";
+//@import "pages/about";
+//@import "pages/methodology";
+//@import "pages/reports";
 
 @import 'bower_components/fontawesome/scss/variables';
 @import 'bower_components/fontawesome/scss/path';

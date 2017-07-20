@@ -1,22 +1,21 @@
-<div class="ui segment">
-  <div class="ui items">
-    <div class="item">
-      <div class="content">
-        <div class="header">{{model.owner.lastName}}  {{model.title}}</div>
-        <div class="meta">
-          <span class="price">{{moment-format model.startDate  'MMMM Do YYYY, h:mm a' }}</span>
-          <span class="stay">{{model.address}}</span>
-        </div>
-        <div class="description">
-          <p> {{{model.description}}}</p>
-        </div>
+  <div class="ui grid stackable">
+    <div class="eight wide column">
+      <div class="ui segment">
+        <h1>{{model.owner.lastName}}  {{model.title}}</h1>
+        <h2>{{moment-format model.startDate  'MMMM Do YYYY, h:mm a' }}</h2>
+        <h5>{{model.address}}</h5>
+        <span>{{{model.description}}}</span>
+        {{#unless model.goblal}}
+          <div class="ui button blue" {{action 'makeSeccional'}}>Hacer seccional</div>
+        {{/unless}}         
       </div>
     </div>
+    <div class="eight wide column">
+         <div class="ui segment">
+            {{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
+         </div>
+    </div> 
   </div>
-  {{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
 
-  {{#unless model.goblal}}
-    <div class="ui button blue" {{action 'makeSeccional'}}>Hacer seccional</div>
-  {{/unless}}
 
-</div>
+
